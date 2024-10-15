@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Te-2e-O7t">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -14,6 +14,22 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="XHh-9l-wQ7">
+            <objects>
+                <navigationController id="4Te-2e-O7t" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ESc-3q-7nd">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9gB-ib-wij"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76X-Ix-3l0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-673" y="4"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -44,6 +60,9 @@
                                                         <integer key="value" value="16"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickedCreateParty:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lNu-K5-ILK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="baseDark"/>
@@ -79,6 +98,9 @@
                                                         <integer key="value" value="16"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickedParties:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hSa-2Y-IJh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="baseDark"/>
@@ -114,6 +136,9 @@
                                                         <integer key="value" value="16"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickedCocktails:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r7G-US-hpN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="baseDark"/>
@@ -149,6 +174,9 @@
                                                         <integer key="value" value="16"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickedSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pGl-sc-vN7"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="baseDark"/>
@@ -176,6 +204,7 @@
                             <constraint firstItem="rUa-D2-dSN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="v07-yT-QSj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="kBf-lb-SUl"/>
                     <connections>
                         <outletCollection property="sectionsView" destination="a2m-IG-Tjf" collectionClass="NSMutableArray" id="TJI-Mi-Bc5"/>
                         <outletCollection property="sectionsView" destination="bTx-UQ-zkD" collectionClass="NSMutableArray" id="MpR-jH-ceC"/>

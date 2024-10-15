@@ -17,6 +17,17 @@ class MenuViewController: UIViewController {
         sectionsButton.forEach({ $0.titleLabel?.font = .montserratExtraBold(size: 21) })
     }
 
-
+    @IBAction func clickedCreateParty(_ sender: UIButton) {
+        self.pushViewController(CreatePartyViewController.self)
+    }
+    
+    @IBAction func clickedParties(_ sender: UIButton) {
+    }
+    
+    @IBAction func clickedCocktails(_ sender: UIButton) {
+//        self.pushViewController(BookingsViewController.self)
+    }
+    @IBAction func clickedSetting(_ sender: UIButton) {
+    }
 }
 
