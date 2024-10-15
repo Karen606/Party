@@ -9,16 +9,18 @@ import UIKit
 
 extension UIViewController {
     func setNavigationBar(title: String, setButtons: Bool = true) {
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage.back, for: .normal)
-        backButton.imageView?.contentMode = .scaleAspectFit
-        backButton.addTarget(self, action: #selector(clickedBack), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-        
-        let menuButton = UIButton(type: .custom)
-        menuButton.setImage(UIImage.menu, for: .normal)
-        menuButton.addTarget(self, action: #selector(clickedMenu), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
+        if setButtons {
+            let backButton = UIButton(type: .custom)
+            backButton.setImage(UIImage.back, for: .normal)
+            backButton.imageView?.contentMode = .scaleAspectFit
+            backButton.addTarget(self, action: #selector(clickedBack), for: .touchUpInside)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+            
+            let menuButton = UIButton(type: .custom)
+            menuButton.setImage(UIImage.menu, for: .normal)
+            menuButton.addTarget(self, action: #selector(clickedMenu), for: .touchUpInside)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
+        }
         
         let titleLabel = UILabel()
         titleLabel.text = title

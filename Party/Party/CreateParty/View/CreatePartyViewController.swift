@@ -22,7 +22,8 @@ class CreatePartyViewController: UIViewController {
     private var containerView: UIView?
     private let viewModel = CreatePartyViewModel.shared
     private var cancellables: Set<AnyCancellable> = []
-
+    var completion: (() -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -114,6 +115,7 @@ class CreatePartyViewController: UIViewController {
             if let error = error {
                 self.showErrorAlert(message: error.localizedDescription)
             } else {
+                self.completion?()
                 self.navigationController?.popViewController(animated: true)
             }
         }

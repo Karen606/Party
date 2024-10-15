@@ -32,6 +32,11 @@
 		6BE5174B2CBE8A5E00AEEADA /* CreatePartyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5174A2CBE8A5E00AEEADA /* CreatePartyViewModel.swift */; };
 		6BE5174E2CBEB7C800AEEADA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5174D2CBEB7C800AEEADA /* CoreDataManager.swift */; };
 		6BE517502CBEBA9900AEEADA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5174F2CBEBA9900AEEADA /* Date.swift */; };
+		6BE517582CBEEC4000AEEADA /* PartyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BE517572CBEEC4000AEEADA /* PartyTableViewCell.xib */; };
+		6BE517592CBEEC4000AEEADA /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE517562CBEEC4000AEEADA /* PartyTableViewCell.swift */; };
+		6BE5175C2CBEEF7200AEEADA /* PartiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BE5175B2CBEEF7200AEEADA /* PartiesViewController.xib */; };
+		6BE5175D2CBEEF7200AEEADA /* PartiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5175A2CBEEF7200AEEADA /* PartiesViewController.swift */; };
+		6BE517602CBEF15600AEEADA /* PartiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5175F2CBEF15600AEEADA /* PartiesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +67,11 @@
 		6BE5174A2CBE8A5E00AEEADA /* CreatePartyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyViewModel.swift; sourceTree = "<group>"; };
 		6BE5174D2CBEB7C800AEEADA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6BE5174F2CBEBA9900AEEADA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		6BE517562CBEEC4000AEEADA /* PartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
+		6BE517572CBEEC4000AEEADA /* PartyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartyTableViewCell.xib; sourceTree = "<group>"; };
+		6BE5175A2CBEEF7200AEEADA /* PartiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiesViewController.swift; sourceTree = "<group>"; };
+		6BE5175B2CBEEF7200AEEADA /* PartiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PartiesViewController.xib; sourceTree = "<group>"; };
+		6BE5175F2CBEF15600AEEADA /* PartiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartiesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +104,10 @@
 		6BE5170D2CBE6DF900AEEADA /* Party */ = {
 			isa = PBXGroup;
 			children = (
-				6BE5174C2CBEB7B900AEEADA /* CoreData */,
+				6BE517532CBEEBA000AEEADA /* Parties */,
 				6BE5173A2CBE7A7C00AEEADA /* CreateParty */,
 				6BE517332CBE730B00AEEADA /* Menu */,
+				6BE5174C2CBEB7B900AEEADA /* CoreData */,
 				6BE517252CBE704C00AEEADA /* Extensions */,
 				6BE5170E2CBE6DF900AEEADA /* AppDelegate.swift */,
 				6BE517102CBE6DF900AEEADA /* SceneDelegate.swift */,
@@ -188,6 +199,42 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		6BE517532CBEEBA000AEEADA /* Parties */ = {
+			isa = PBXGroup;
+			children = (
+				6BE5175E2CBEF14700AEEADA /* ViewModel */,
+				6BE517552CBEEBB300AEEADA /* Cell */,
+				6BE517542CBEEBAD00AEEADA /* View */,
+			);
+			path = Parties;
+			sourceTree = "<group>";
+		};
+		6BE517542CBEEBAD00AEEADA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6BE5175A2CBEEF7200AEEADA /* PartiesViewController.swift */,
+				6BE5175B2CBEEF7200AEEADA /* PartiesViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6BE517552CBEEBB300AEEADA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6BE517562CBEEC4000AEEADA /* PartyTableViewCell.swift */,
+				6BE517572CBEEC4000AEEADA /* PartyTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6BE5175E2CBEF14700AEEADA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6BE5175F2CBEF15600AEEADA /* PartiesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,7 +298,9 @@
 				6BE5172F2CBE70A400AEEADA /* Montserrat-Medium.ttf in Resources */,
 				6BE517312CBE70A400AEEADA /* Montserrat-Regular.ttf in Resources */,
 				6BE517302CBE70A400AEEADA /* Montserrat-Bold.ttf in Resources */,
+				6BE5175C2CBEEF7200AEEADA /* PartiesViewController.xib in Resources */,
 				6BE5172E2CBE70A400AEEADA /* Montserrat-ExtraBold.ttf in Resources */,
+				6BE517582CBEEC4000AEEADA /* PartyTableViewCell.xib in Resources */,
 				6BE5171E2CBE6DFA00AEEADA /* Base in Resources */,
 				6BE517322CBE70A400AEEADA /* Montserrat-SemiBold.ttf in Resources */,
 				6BE517162CBE6DF900AEEADA /* Base in Resources */,
@@ -270,6 +319,7 @@
 				6BE517432CBE7D1F00AEEADA /* String.swift in Sources */,
 				6BE517502CBEBA9900AEEADA /* Date.swift in Sources */,
 				6BE5174E2CBEB7C800AEEADA /* CoreDataManager.swift in Sources */,
+				6BE5175D2CBEEF7200AEEADA /* PartiesViewController.swift in Sources */,
 				6BE5170F2CBE6DF900AEEADA /* AppDelegate.swift in Sources */,
 				6BE517412CBE7CF900AEEADA /* BaseTextField.swift in Sources */,
 				6BE517282CBE705A00AEEADA /* Font.swift in Sources */,
@@ -277,9 +327,11 @@
 				6BE517352CBE74D000AEEADA /* UIView.swift in Sources */,
 				6BE517112CBE6DF900AEEADA /* SceneDelegate.swift in Sources */,
 				6BE517462CBE852800AEEADA /* PartyModel.swift in Sources */,
+				6BE517602CBEF15600AEEADA /* PartiesViewModel.swift in Sources */,
 				6BE517392CBE799700AEEADA /* ViewController.swift in Sources */,
 				6BE5174B2CBE8A5E00AEEADA /* CreatePartyViewModel.swift in Sources */,
 				6BE517372CBE74E500AEEADA /* ShadowView.swift in Sources */,
+				6BE517592CBEEC4000AEEADA /* PartyTableViewCell.swift in Sources */,
 				6BE5173F2CBE7A9000AEEADA /* CreatePartyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
