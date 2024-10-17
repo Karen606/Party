@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CoreDataManager {
     static let shared = CoreDataManager()
@@ -291,41 +292,88 @@ class CoreDataManager {
         }
     }
 
-//    
-//    func removeBooking(id: UUID, completion: @escaping (Error?) -> Void) {
-//        let backgroundContext = persistentContainer.newBackgroundContext()
-//        backgroundContext.perform {
-//            let fetchRequest: NSFetchRequest<BookRoom> = BookRoom.fetchRequest()
-//            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-//            
-//            do {
-//                let results = try backgroundContext.fetch(fetchRequest)
-//                if let bookingToDelete = results.first {
-//                    backgroundContext.delete(bookingToDelete)
-//                    
-//                    do {
-//                        try backgroundContext.save()
-//                        DispatchQueue.main.async {
-//                            completion(nil)
-//                        }
-//                    } catch {
-//                        DispatchQueue.main.async {
-//                            completion(error)
-//                        }
-//                    }
-//                } else {
-//                    DispatchQueue.main.async {
-//                        let error = NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "Booking with id \(id) not found."])
-//                        completion(error)
-//                    }
-//                }
-//            } catch {
-//                DispatchQueue.main.async {
-//                    completion(error)
-//                }
-//            }
-//        }
-//    }
+    func saveCoctail(coctailModel: CoctailModel, completion: @escaping (Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let coctailFetchRequest: NSFetchRequest<Coctail> = Coctail.fetchRequest()
+            let id = coctailModel.id ?? UUID()
+            coctailFetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+            do {
+                let results = try backgroundContext.fetch(coctailFetchRequest)
+                let coctail: Coctail
+
+                if let existingCoctail = results.first {
+                    coctail = existingCoctail
+                } else {
+                    coctail = Coctail(context: backgroundContext)
+                    coctail.id = id
+                }
+
+                coctail.name = coctailModel.name
+                coctail.photo = coctailModel.photo
+                coctail.descriptionPreparation = coctailModel.descriptionPreparation
+
+                if let existingCompositions = coctail.compositions as? Set<Composition> {
+                    for composition in existingCompositions {
+                        backgroundContext.delete(composition)
+                    }
+                }
+
+                if let compositions = coctailModel.compositions {
+                    for compositionModel in compositions {
+                        let composition = Composition(context: backgroundContext)
+                        composition.name = compositionModel.name
+                        composition.value = compositionModel.value
+                        composition.coctail = coctail
+                        coctail.addToCompositions(composition)
+                    }
+                }
+
+                try backgroundContext.save()
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
+    
+    func fetchCoctails(completion: @escaping ([CoctailModel], Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<Coctail> = Coctail.fetchRequest()
+
+            do {
+                let coctails = try backgroundContext.fetch(fetchRequest)
+                let coctailModels = coctails.map { coctail in
+                    let compositions = (coctail.compositions as? Set<Composition>)?.map { composition in
+                        CompositionModel(name: composition.name, value: composition.value)
+                    }
+
+                    return CoctailModel(
+                        id: coctail.id,
+                        name: coctail.name,
+                        photo: coctail.photo,
+                        compositions: compositions,
+                        descriptionPreparation: coctail.descriptionPreparation
+                    )
+                }
+
+                DispatchQueue.main.async {
+                    completion(coctailModels, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
+            }
+        }
+    }
+
 
 
 }
