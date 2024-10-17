@@ -30,20 +30,20 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhT-Zf-QaE">
                             <rect key="frame" x="2" y="2" width="384" height="103.33333333333333"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1O-pr-IMc">
-                                    <rect key="frame" x="20" y="24" width="207.33333333333334" height="26.333333333333329"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1O-pr-IMc">
+                                    <rect key="frame" x="20" y="24" width="4.6666666666666679" height="26.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
                                     <color key="textColor" name="baseDark"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW4-D0-lod">
-                                    <rect key="frame" x="20" y="53.000000000000007" width="207.33333333333334" height="26.333333333333336"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW4-D0-lod">
+                                    <rect key="frame" x="20" y="53.000000000000007" width="4.6666666666666679" height="26.333333333333336"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
                                     <color key="textColor" red="0.27843137254901962" green="0.29019607843137252" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="24/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-qs-2bi">
-                                    <rect key="frame" x="235.33333333333331" y="22" width="128.66666666666669" height="53"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="24/10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4e-qs-2bi">
+                                    <rect key="frame" x="32.666666666666657" y="21.999999999999996" width="331.33333333333337" height="52.666666666666657"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="44"/>
                                     <color key="textColor" name="baseDark"/>
                                     <nil key="highlightedColor"/>
@@ -52,7 +52,6 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="q4e-qs-2bi" firstAttribute="top" secondItem="nhT-Zf-QaE" secondAttribute="top" constant="22" id="6I4-1p-AkF"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="q4e-qs-2bi" secondAttribute="bottom" constant="21" id="DnI-FH-vLb"/>
                                 <constraint firstItem="OW4-D0-lod" firstAttribute="top" secondItem="S1O-pr-IMc" secondAttribute="bottom" constant="2.6666666666666714" id="Z89-QV-ieb"/>
                                 <constraint firstItem="q4e-qs-2bi" firstAttribute="leading" secondItem="OW4-D0-lod" secondAttribute="trailing" constant="8" symbolic="YES" id="cWw-06-wrz"/>
                                 <constraint firstItem="S1O-pr-IMc" firstAttribute="leading" secondItem="nhT-Zf-QaE" secondAttribute="leading" constant="20" symbolic="YES" id="ebo-Zp-81N"/>

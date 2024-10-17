@@ -31,20 +31,20 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJR-zT-HmI">
                             <rect key="frame" x="2" y="2" width="384" height="103.33333333333333"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGF-3a-82u">
-                                    <rect key="frame" x="20" y="24" width="207.33333333333334" height="26.333333333333329"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGF-3a-82u">
+                                    <rect key="frame" x="20" y="24" width="4.6666666666666679" height="26.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
                                     <color key="textColor" name="baseDark"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMo-ao-IBC">
-                                    <rect key="frame" x="20" y="53.000000000000007" width="207.33333333333334" height="26.333333333333336"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMo-ao-IBC">
+                                    <rect key="frame" x="20" y="53.000000000000007" width="4.6666666666666679" height="26.333333333333336"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
                                     <color key="textColor" red="0.2784313725" green="0.2901960784" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="24/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swv-FS-Bj3">
-                                    <rect key="frame" x="235.33333333333331" y="22" width="128.66666666666669" height="53"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="24/10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swv-FS-Bj3">
+                                    <rect key="frame" x="32.666666666666657" y="22" width="331.33333333333337" height="53"/>
                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="44"/>
                                     <color key="textColor" name="baseDark"/>
                                     <nil key="highlightedColor"/>
@@ -60,7 +60,6 @@
                                 <constraint firstItem="EGF-3a-82u" firstAttribute="top" secondItem="DJR-zT-HmI" secondAttribute="top" constant="24" id="QoF-da-d1q"/>
                                 <constraint firstItem="swv-FS-Bj3" firstAttribute="leading" secondItem="EGF-3a-82u" secondAttribute="trailing" constant="8" symbolic="YES" id="ixY-3E-jJm"/>
                                 <constraint firstItem="HMo-ao-IBC" firstAttribute="leading" secondItem="DJR-zT-HmI" secondAttribute="leading" constant="20" symbolic="YES" id="uoA-fo-uJV"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="swv-FS-Bj3" secondAttribute="bottom" constant="21" id="uqZ-rB-ZJl"/>
                                 <constraint firstItem="swv-FS-Bj3" firstAttribute="leading" secondItem="HMo-ao-IBC" secondAttribute="trailing" constant="8" symbolic="YES" id="x7N-Pd-HTf"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>

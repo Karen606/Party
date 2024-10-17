@@ -13,4 +13,5 @@ struct PartyModel {
     var location: String?
     var theme: String?
     var date: Date?
+    var guests: [GuestModel]?
 }

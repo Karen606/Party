@@ -9,7 +9,7 @@ import Foundation
 
 class CreatePartyViewModel {
     static let shared = CreatePartyViewModel()
-    @Published var partyModel = PartyModel(id: UUID())
+    @Published var partyModel = PartyModel(id: UUID(), guests: [])
     private init() {}
     
     func save(completion: @escaping (Error?) -> Void) {
@@ -19,6 +19,6 @@ class CreatePartyViewModel {
     }
     
     func clear() {
-        partyModel = PartyModel(id: UUID())
+        partyModel = PartyModel(id: UUID(), guests: [])
     }
 }

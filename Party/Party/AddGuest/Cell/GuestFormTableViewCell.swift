@@ -46,6 +46,7 @@ class GuestFormTableViewCell: UITableViewCell {
         nameTextField.delegate = self
         emailTextField.delegate = self
         phoneNumberTextField.delegate = self
+        saveButton.isEnabled = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -102,5 +103,9 @@ extension GuestFormTableViewCell: UITextFieldDelegate {
         if textField == emailTextField {
             emailErrorLabel.isHidden = emailTextField.text.isValidEmail()
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
     }
 }

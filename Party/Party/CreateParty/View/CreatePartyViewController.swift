@@ -47,6 +47,7 @@ class CreatePartyViewController: UIViewController {
     }
         
     @objc func showDatePicker() {
+        self.view.endEditing(true)
         if containerView != nil {
             containerView?.removeFromSuperview()
             containerView = nil

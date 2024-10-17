@@ -10,6 +10,7 @@ import UIKit
 protocol PartyViewDelegate: AnyObject {
     func sendEmail(to guest: GuestModel)
     func sendMessage(to guest: GuestModel)
+    func close()
 }
 
 class PartyView: UIView {
@@ -59,7 +60,7 @@ class PartyView: UIView {
     }
     
     @IBAction func clickedClose(_ sender: UIButton) {
-        self.removeFromSuperview()
+        delegate?.close()
     }
 }
 

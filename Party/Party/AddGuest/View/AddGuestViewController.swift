@@ -64,17 +64,25 @@ class AddGuestViewController: UIViewController {
         guestsTableView.reloadData()
     }
     
+    func removeSelectedGuest() {
+        partyView?.removeFromSuperview()
+        partyView = nil
+        viewModel.selectedGuest = nil
+    }
+    
     func sendEmail(withView view: UIView, to recipient: String) {
         guard MFMailComposeViewController.canSendMail() else {
             let alert = UIAlertController(title: "Error", message: "Mail services are not available", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
+            removeSelectedGuest()
             return
         }
         guard let image = view.toImage(), let imageData = image.jpegData(compressionQuality: 1.0) else {
             let alert = UIAlertController(title: "Error", message: "Unable to convert view to image", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
+            removeSelectedGuest()
             return
         }
         let mailComposeVC = MFMailComposeViewController()
@@ -91,12 +99,14 @@ class AddGuestViewController: UIViewController {
             let alert = UIAlertController(title: "Error", message: "SMS services are not available", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
+            removeSelectedGuest()
             return
         }
         
         guard MFMessageComposeViewController.canSendAttachments() else {
             let alert = UIAlertController(title: "Error", message: "MMS services are not available", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            removeSelectedGuest()
             present(alert, animated: true, completion: nil)
             return
         }
@@ -104,6 +114,7 @@ class AddGuestViewController: UIViewController {
             let alert = UIAlertController(title: "Error", message: "Unable to convert view to image", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
+            removeSelectedGuest()
             return
         }
         let messageComposeVC = MFMessageComposeViewController()
@@ -191,8 +202,7 @@ extension AddGuestViewController: GuestFormTableViewCellDelegate {
 extension AddGuestViewController: AddGuestTableViewCellDelegate {
     func sendMessage(cell: UITableViewCell, guest: GuestModel) {
         if partyView != nil {
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
             return
         }
         partyView = PartyView.instanceFromNib()
@@ -213,8 +223,7 @@ extension AddGuestViewController: AddGuestTableViewCellDelegate {
     
     func sendEmail(cell: UITableViewCell, guest: GuestModel) {
         if partyView != nil {
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
             return
         }
         partyView = PartyView.instanceFromNib()
@@ -372,19 +381,17 @@ extension AddGuestViewController: MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
         switch result {
         case .cancelled:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
         case .saved:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
         case .sent:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            viewModel.addGuestToParty()
+            removeSelectedGuest()
         case .failed:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
             self.showErrorAlert(message: "Mail sent failure: \(String(describing: error?.localizedDescription))")
         @unknown default:
+            removeSelectedGuest()
             break
         }
     }
@@ -395,33 +402,36 @@ extension AddGuestViewController: MFMessageComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
         switch result {
         case .cancelled:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
         case .sent:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            viewModel.addGuestToParty()
+            removeSelectedGuest()
         case .failed:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
             self.showErrorAlert(message: "MMS failed")
         @unknown default:
-            partyView?.removeFromSuperview()
-            partyView = nil
+            removeSelectedGuest()
             break
         }
     }
 }
 
 extension AddGuestViewController: PartyViewDelegate {
+    func close() {
+        removeSelectedGuest()
+    }
+    
     func sendEmail(to guest: GuestModel) {
-        guard let name = viewModel.party?.name, let location = viewModel.party?.location, let date = viewModel.party?.date, let partyView = partyView else { return }
+        guard let partyView = partyView else { return }
+        viewModel.selectedGuest = guest
         partyView.closeButton.isHidden = true
         partyView.sendButton.isHidden = true
         sendEmail(withView: partyView.bgView, to: guest.email ?? "")
     }
     
     func sendMessage(to guest: GuestModel) {
-        guard let name = viewModel.party?.name, let location = viewModel.party?.location, let date = viewModel.party?.date, let partyView = partyView else { return }
+        guard let partyView = partyView else { return }
+        viewModel.selectedGuest = guest
         partyView.closeButton.isHidden = true
         partyView.sendButton.isHidden = true
         sendMMS(withView: partyView.bgView, to: guest.phone ?? "")

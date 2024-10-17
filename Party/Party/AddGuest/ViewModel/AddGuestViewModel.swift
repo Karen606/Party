@@ -13,6 +13,7 @@ class AddGuestViewModel {
     var guest: GuestModel?
     var data: [GuestModel] = []
     var party: PartyModel?
+    var selectedGuest: GuestModel?
     var search: String?
     private init() {}
     
@@ -41,6 +42,13 @@ class AddGuestViewModel {
         }
     }
     
+    func addGuestToParty() {
+        guard let id = party?.id, let guest = selectedGuest else { return }
+        CoreDataManager.shared.addGuestToParty(guestModel: guest, partyID: id) { error in
+            return
+        }
+    }
+    
     func addGuest() {
         guest = GuestModel()
     }
@@ -51,5 +59,6 @@ class AddGuestViewModel {
         guest = nil
         party = nil
         search = nil
+        selectedGuest = nil
     }
 }
