@@ -36,6 +36,12 @@ class PartiesViewModel {
         }
     }
     
+    func clear() {
+        parties = []
+        data = []
+        type = .upcoming
+    }
+    
 }
 
 enum PartyType {

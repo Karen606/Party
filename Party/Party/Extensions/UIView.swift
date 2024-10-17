@@ -32,4 +32,11 @@ extension UIView {
         bottomBorder.backgroundColor = color.cgColor
         self.layer.addSublayer(bottomBorder)
     }
+    
+    func toImage() -> UIImage? {
+            UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0)
+            defer { UIGraphicsEndImageContext() }
+            self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+            return UIGraphicsGetImageFromCurrentImageContext()
+        }
 }

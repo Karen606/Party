@@ -97,8 +97,8 @@
             <connections>
                 <outlet property="bgView" destination="ybE-yP-egm" id="dGd-Gd-fPe"/>
                 <outlet property="dateLabel" destination="Qi3-BW-SWu" id="aH6-mL-51F"/>
-                <outlet property="nameLabel" destination="Wj7-LN-yoS" id="fZz-2f-X5e"/>
-                <outlet property="themeLabel" destination="p1A-Wu-phf" id="ogh-xI-9PZ"/>
+                <outlet property="locationLabel" destination="Wj7-LN-yoS" id="nmV-xx-gwN"/>
+                <outlet property="nameLabel" destination="p1A-Wu-phf" id="4gm-cp-ORY"/>
             </connections>
             <point key="canvasLocation" x="54.418604651162788" y="64.699570815450642"/>
         </tableViewCell>
@@ -106,10 +106,10 @@
     <resources>
         <image name="club" width="36" height="36"/>
         <namedColor name="baseDark">
-            <color red="0.094117647058823528" green="0.098039215686274508" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.093999996781349182" green="0.097999997437000275" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="baseOrange">
-            <color red="1" green="0.5607843137254902" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.56099998950958252" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -88,7 +88,6 @@ class BaseTextField: UITextField {
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.baseDark.cgColor
         self.textColor = .black
-//        self.backgroundColor = .clear
     }
 }
 
@@ -103,11 +102,11 @@ extension UITextView {
 }
 
 extension UITextField {
-    func setupRightViewIcon(_ image: UIImage) {
-        let icon = UIImageView(frame:CGRect(x: 0, y: 0, width: 40, height: 50))
+    func setupRightViewIcon(_ image: UIImage, size: CGSize) {
+        let icon = UIImageView(frame:CGRect(x: 0, y: 0, width: size.width, height: size.height))
         icon.image = image
         icon.contentMode = .center
-        let iconContainerView: UIView = UIView(frame:CGRect(x: 0, y: 0, width: 40, height: 50))
+        let iconContainerView: UIView = UIView(frame:CGRect(x: 0, y: 0, width: size.width, height: size.height))
         iconContainerView.isUserInteractionEnabled = false
         iconContainerView.addSubview(icon)
         rightView = iconContainerView
@@ -126,7 +125,7 @@ extension UITextField {
     }
 }
 
-class EmailTextField: BaseTextField, UITextFieldDelegate {
+class EmailTextField: UITextField, UITextFieldDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -142,9 +141,20 @@ class EmailTextField: BaseTextField, UITextFieldDelegate {
         self.delegate = self
         self.keyboardType = .default
     }
-    
-    func isValidEmail() {
-        self.showError(error: (self.text.isValidEmail()) ? nil : "Please enter a valid email address")
-    }
 }
 
+class PaddingTextField: UITextField {
+    private var padding = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 40)
+    
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+}

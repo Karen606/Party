@@ -54,6 +54,10 @@ class PartiesViewController: UIViewController {
         let type = sender.isSelected ? PartyType.past : .upcoming
         viewModel.filter(type: type)
     }
+    
+    deinit {
+        viewModel.clear()
+    }
 }
 
 extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -83,5 +87,11 @@ extension PartiesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let guestListVC = GuestListViewController(nibName: "GuestListViewController", bundle: nil)
+        GuestListViewModel.shared.partyModel = viewModel.parties[indexPath.row]
+        self.navigationController?.pushViewController(guestListVC, animated: true)
     }
 }

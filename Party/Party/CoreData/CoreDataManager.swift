@@ -76,6 +76,61 @@ class CoreDataManager {
         }
     }
     
+    func saveGuest(guestModel: GuestModel, completion: @escaping (Error?) -> Void) {
+        let id = guestModel.id ?? UUID()
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<Guest> = Guest.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                let guest: Guest
+
+                if let existingGuest = results.first {
+                    guest = existingGuest
+                } else {
+                    guest = Guest(context: backgroundContext)
+                    guest.id = id
+                }
+                guest.name = guestModel.name
+                guest.phone = guestModel.phone
+                guest.email = guestModel.email
+                guest.photo = guestModel.photo
+                guest.isConfirmed = guestModel.isConfirmed
+                try backgroundContext.save()
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+        }
+    }
+    
+    func fetchGuests(completion: @escaping ([GuestModel], Error?) -> Void) {
+        let backgroundContext = persistentContainer.newBackgroundContext()
+        backgroundContext.perform {
+            let fetchRequest: NSFetchRequest<Guest> = Guest.fetchRequest()
+            
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                var guestsModel: [GuestModel] = []
+                for result in results {
+                    let guestModel = GuestModel(id: result.id, photo: result.photo, name: result.name, phone: result.phone, email: result.email, isConfirmed: result.isConfirmed)  
+                    guestsModel.append(guestModel)
+                }
+                completion(guestsModel, nil)
+            } catch {
+                DispatchQueue.main.async {
+                    completion([], error)
+                }
+            }
+        }
+    }
+    
 //    func saveBookRoom(bookRoomModel: BookRoomModel, completion: @escaping (Error?) -> Void) {
 //        let backgroundContext = persistentContainer.newBackgroundContext()
 //        backgroundContext.perform {

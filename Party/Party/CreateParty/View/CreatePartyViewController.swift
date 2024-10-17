@@ -33,7 +33,7 @@ class CreatePartyViewController: UIViewController {
     func setupUI() {
         self.setNavigationBar(title: "Create a party")
         titleLabels.forEach({ $0.font = .montserratRegular(size: 14) })
-        dateTextField.setupRightViewIcon(UIImage.bottomArrow)
+        dateTextField.setupRightViewIcon(UIImage.bottomArrow, size: CGSizeMake(40, 50))
         saveButton.titleLabel?.font = .montserratExtraBold(size: 21)
         textFields.forEach({ $0.delegate = self })
         datePicker.locale = NSLocale.current
