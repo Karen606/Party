@@ -28,7 +28,9 @@ class MenuViewController: UIViewController {
     @IBAction func clickedCocktails(_ sender: UIButton) {
         self.pushViewController(CoctailsViewController.self)
     }
+    
     @IBAction func clickedSetting(_ sender: UIButton) {
+        self.pushViewController(SettingViewController.self)
     }
 }
 

@@ -25,8 +25,7 @@ class GuestListViewController: UIViewController {
     }
     
     func setupUI() {
-        setNavigationBar(title: "Guest list", setButtons: false)
-        setNaviagtionMenuButton()
+        setNavigationBar(title: "Guest list")
         nameLabel.font = .montserratExtraBold(size: 22)
         locationLabel.font = .montserratMedium(size: 15)
         dateLabel.font = .montserratExtraBold(size: 44)

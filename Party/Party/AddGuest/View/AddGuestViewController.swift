@@ -30,8 +30,7 @@ class AddGuestViewController: UIViewController {
     }
     
     func setupUI() {
-        setNavigationBar(title: "Add guest", setButtons: false)
-        setNaviagtionMenuButton()
+        setNavigationBar(title: "Add guest")
         nameLabel.font = .montserratExtraBold(size: 22)
         locationLabel.font = .montserratMedium(size: 15)
         dateLabel.font = .montserratExtraBold(size: 44)

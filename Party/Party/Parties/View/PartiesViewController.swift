@@ -17,8 +17,7 @@ class PartiesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar(title: "My partyes", setButtons: false)
-        setNaviagtionMenuButton()
+        setNavigationBar(title: "My partyes")
         setupTableView()
         subscribe()
         viewModel.fetchData()

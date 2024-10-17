@@ -39,7 +39,7 @@ class PartyView: UIView {
         locationLabel.font = .montserratExtraBold(size: 13)
         dateLabel.font = .montserratBold(size: 13)
         locationLabel.text = party.location
-        nameLabel.text = party.name
+        nameLabel.text = "\(party.name ?? "")\n\(party.theme ?? "")"
         nameLabel.sizeToFit()
         dateLabel.text = party.date?.toString(format: "dd MMMM, yyyy h:mm a")
         self.sendType = sendType

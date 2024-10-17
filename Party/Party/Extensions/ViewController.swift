@@ -31,9 +31,9 @@ extension UIViewController {
         navigationItem.titleView = titleLabel
     }
     
-    func setNaviagtionBackButton() {
+    func setNaviagtionBackButton(image: UIImage = .back) {
         let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage.back, for: .normal)
+        backButton.setImage(image, for: .normal)
         backButton.imageView?.contentMode = .scaleAspectFit
         backButton.addTarget(self, action: #selector(clickedBack), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)

@@ -46,6 +46,10 @@ class CoctailsViewController: UIViewController {
         }
         self.navigationController?.pushViewController(coctailFormVC, animated: true)
     }
+    
+    deinit {
+        viewModel.clear()
+    }
 }
 
 extension CoctailsViewController: UITableViewDelegate, UITableViewDataSource {

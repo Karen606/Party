@@ -29,7 +29,7 @@ class PartyTableViewCell: UITableViewCell {
     
     func setupData(party: PartyModel) {
         locationLabel.text = party.location
-        nameLabel.text = party.name
+        nameLabel.text = "\(party.name ?? "")\n\(party.theme ?? "")"
         dateLabel.text = party.date?.toString(format: "dd MMMM, yyyy h:mm a")
         bgView.backgroundColor = PartiesViewModel.shared.type == .upcoming ? .baseOrange : #colorLiteral(red: 1, green: 0.7137254902, blue: 0.5058823529, alpha: 1)
     }
