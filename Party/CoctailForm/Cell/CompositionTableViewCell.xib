@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="53" id="KGk-i7-Jjw" customClass="CompositionTableViewCell" customModule="Party" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="391" height="53"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="391" height="53"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57S-1z-MQG">
+                        <rect key="frame" x="24" y="2" width="349" height="43"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWc-2l-JdG" customClass="PaddingTextField" customModule="Party" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                <color key="backgroundColor" red="1" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="yz5-eo-agq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D3a-e9-wmM" customClass="PaddingTextField" customModule="Party" customModuleProvider="target">
+                                <rect key="frame" x="250" y="0.0" width="99" height="43"/>
+                                <color key="backgroundColor" red="1" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Nfz-rm-nQI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D3a-e9-wmM" firstAttribute="leading" secondItem="nWc-2l-JdG" secondAttribute="trailing" constant="10" id="6Po-NH-b3H"/>
+                            <constraint firstItem="nWc-2l-JdG" firstAttribute="top" secondItem="57S-1z-MQG" secondAttribute="top" id="78t-XF-iuH"/>
+                            <constraint firstAttribute="bottom" secondItem="D3a-e9-wmM" secondAttribute="bottom" id="9dc-mG-J7X"/>
+                            <constraint firstAttribute="height" constant="43" id="A0Y-Oy-cua"/>
+                            <constraint firstItem="nWc-2l-JdG" firstAttribute="width" secondItem="D3a-e9-wmM" secondAttribute="width" multiplier="2.42157" id="Erl-Iy-ibN"/>
+                            <constraint firstItem="nWc-2l-JdG" firstAttribute="leading" secondItem="57S-1z-MQG" secondAttribute="leading" id="Huq-rq-pgF"/>
+                            <constraint firstAttribute="bottom" secondItem="nWc-2l-JdG" secondAttribute="bottom" id="UtC-On-tRs"/>
+                            <constraint firstItem="D3a-e9-wmM" firstAttribute="top" secondItem="57S-1z-MQG" secondAttribute="top" id="ZOf-GL-KAy"/>
+                            <constraint firstAttribute="trailing" secondItem="D3a-e9-wmM" secondAttribute="trailing" id="fiH-nl-gv0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="57S-1z-MQG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="Dhj-Yb-2Cj"/>
+                    <constraint firstAttribute="trailing" secondItem="57S-1z-MQG" secondAttribute="trailing" constant="18" id="oX3-RX-VBD"/>
+                    <constraint firstAttribute="bottom" secondItem="57S-1z-MQG" secondAttribute="bottom" constant="8" id="ptA-XE-O4b"/>
+                    <constraint firstItem="57S-1z-MQG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="wKX-0S-w2K"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nameTextField" destination="nWc-2l-JdG" id="8Sb-SJ-bVK"/>
+                <outlet property="valueTextField" destination="D3a-e9-wmM" id="YfR-VX-h3u"/>
+            </connections>
+            <point key="canvasLocation" x="165.64885496183206" y="10.91549295774648"/>
+        </tableViewCell>
+    </objects>
+</document>
